@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Spotify Username" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZxX-IG-PyW">
@@ -39,11 +39,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ogi-xD-fsp"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191.5" y="309.5"/>
+            <point key="canvasLocation" x="1237" y="77"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="CMC-a0-7tn">
@@ -53,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="88g-Ro-1f2">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Ingrese el nombre de un artista" id="88g-Ro-1f2">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -64,6 +63,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q0j-FL-2o7" id="azZ-EN-3AS">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="I6P-oK-yJ2" kind="show" id="phb-RZ-qpY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -77,10 +79,85 @@
             </objects>
             <point key="canvasLocation" x="2087.5" y="72.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Table View Controller-->
+        <scene sceneID="1Fd-ln-4yZ">
+            <objects>
+                <tableViewController id="I6P-oK-yJ2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yA0-6h-XU6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PBe-1I-eR4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PBe-1I-eR4" id="L74-NQ-Jck">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="koR-np-Cbt" kind="showDetail" id="Tg2-gE-5n2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="I6P-oK-yJ2" id="Lt3-3O-aTy"/>
+                            <outlet property="delegate" destination="I6P-oK-yJ2" id="kA4-hX-e1y"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8Jv-Xn-Wbt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUo-mD-2Zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2912" y="72"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ndc-i7-GIL">
+            <objects>
+                <viewController id="koR-np-Cbt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nxf-hW-V9I"/>
+                        <viewControllerLayoutGuide type="bottom" id="gll-Z7-Bdv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KwV-5b-l5M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Um-rk-MGY">
+                                <rect key="frame" x="16" y="550" width="152" height="30"/>
+                                <state key="normal" title="Prev">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bw-jY-Rfo">
+                                <rect key="frame" x="176" y="550" width="46" height="30"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ut-81-miK">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIk-Ci-RhS">
+                                <rect key="frame" x="538" y="550" width="46" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UjQ-lh-qW9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5E-ak-4gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3738" y="72"/>
+        </scene>
+        <!--Login-->
         <scene sceneID="hM4-Va-WJs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9mL-CZ-svV" sceneMemberID="viewController">
+                <navigationController title="Login" automaticallyAdjustsScrollViewInsets="NO" id="9mL-CZ-svV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RE8-ez-VLU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -93,28 +170,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3K-gH-49F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="392"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="m6a-bG-5QG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fEY-Qu-m8z" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hNr-hz-zxt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="e6R-HD-nbH" kind="relationship" relationship="rootViewController" id="v2v-jn-dai"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HiO-kF-gUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1623" y="-645"/>
+            <point key="canvasLocation" x="1256" y="-773"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="v2v-jn-dai"/>
-    </inferredMetricsTieBreakers>
 </document>
