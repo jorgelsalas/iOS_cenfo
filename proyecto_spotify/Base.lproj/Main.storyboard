@@ -56,7 +56,7 @@
         <!--Artists-->
         <scene sceneID="CMC-a0-7tn">
             <objects>
-                <tableViewController id="e6R-HD-nbH" sceneMemberID="viewController">
+                <tableViewController id="e6R-HD-nbH" customClass="ArtistSearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="uIx-Ii-tYl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Q0j-FL-2o7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="80" id="Q0j-FL-2o7">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q0j-FL-2o7" id="azZ-EN-3AS">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +75,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwg-xP-2jI">
                                             <rect key="frame" x="8" y="29" width="238" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-2t-R39">
@@ -94,7 +94,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="I6P-oK-yJ2" kind="show" id="phb-RZ-qpY"/>
+                                    <segue destination="I6P-oK-yJ2" kind="show" identifier="ViewArtistSongsSegue" id="phb-RZ-qpY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,9 +104,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Artists" id="OdT-FV-DJO"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" id="6la-71-6ZC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZN-EF-j6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,13 +112,13 @@
         <!--Top Songs-->
         <scene sceneID="1Fd-ln-4yZ">
             <objects>
-                <tableViewController id="I6P-oK-yJ2" sceneMemberID="viewController">
+                <tableViewController id="I6P-oK-yJ2" customClass="SongListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="yA0-6h-XU6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="PBe-1I-eR4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="80" id="PBe-1I-eR4">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PBe-1I-eR4" id="L74-NQ-Jck">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -129,7 +126,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBV-P8-pvp">
                                             <rect key="frame" x="8" y="29" width="161" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daS-wv-SYK">
@@ -149,7 +146,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="koR-np-Cbt" kind="showDetail" id="Tg2-gE-5n2"/>
+                                    <segue destination="koR-np-Cbt" kind="showDetail" identifier="PlaySongSegue" id="Tg2-gE-5n2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -164,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="2892" y="104"/>
         </scene>
-        <!--View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="ndc-i7-GIL">
             <objects>
-                <viewController id="koR-np-Cbt" sceneMemberID="viewController">
+                <viewController id="koR-np-Cbt" customClass="PlayerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nxf-hW-V9I"/>
                         <viewControllerLayoutGuide type="bottom" id="gll-Z7-Bdv"/>
@@ -204,7 +201,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgo-hQ-j1f">
                                 <rect key="frame" x="246" y="20" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Um-rk-MGY">

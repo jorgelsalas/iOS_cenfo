@@ -14,6 +14,15 @@
 		6A3DC0341B7FE6F30078EF11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A3DC0331B7FE6F30078EF11 /* Images.xcassets */; };
 		6A3DC0371B7FE6F30078EF11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3DC0351B7FE6F30078EF11 /* LaunchScreen.xib */; };
 		6A3DC0431B7FE6F30078EF11 /* proyecto_spotifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DC0421B7FE6F30078EF11 /* proyecto_spotifyTests.m */; };
+		6ACE76FD1B8A5C4D000924F3 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE76FC1B8A5C4D000924F3 /* Artist.m */; };
+		6ACE77001B8A5C83000924F3 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE76FF1B8A5C83000924F3 /* Song.m */; };
+		6ACE77031B8A5D75000924F3 /* ArtistSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE77021B8A5D75000924F3 /* ArtistSearchTableViewController.m */; };
+		6ACE77061B8A5E65000924F3 /* SongListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE77051B8A5E65000924F3 /* SongListTableViewController.m */; };
+		6ACE77091B8A5EB2000924F3 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE77081B8A5EB2000924F3 /* PlayerViewController.m */; };
+		6ACE770C1B8A6027000924F3 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE770B1B8A6027000924F3 /* Spotify.framework */; };
+		6ACE770E1B8A610C000924F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE770D1B8A610C000924F3 /* AVFoundation.framework */; };
+		6ACE77101B8A6115000924F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE770F1B8A6115000924F3 /* SystemConfiguration.framework */; };
+		6ACE77141B8A8D00000924F3 /* SpotifyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,21 @@
 		6A3DC03C1B7FE6F30078EF11 /* proyecto_spotifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proyecto_spotifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3DC0411B7FE6F30078EF11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A3DC0421B7FE6F30078EF11 /* proyecto_spotifyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = proyecto_spotifyTests.m; sourceTree = "<group>"; };
+		6ACE76FB1B8A5C4D000924F3 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
+		6ACE76FC1B8A5C4D000924F3 /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
+		6ACE76FE1B8A5C83000924F3 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		6ACE76FF1B8A5C83000924F3 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		6ACE77011B8A5D75000924F3 /* ArtistSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistSearchTableViewController.h; sourceTree = "<group>"; };
+		6ACE77021B8A5D75000924F3 /* ArtistSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistSearchTableViewController.m; sourceTree = "<group>"; };
+		6ACE77041B8A5E65000924F3 /* SongListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongListTableViewController.h; sourceTree = "<group>"; };
+		6ACE77051B8A5E65000924F3 /* SongListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongListTableViewController.m; sourceTree = "<group>"; };
+		6ACE77071B8A5EB2000924F3 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		6ACE77081B8A5EB2000924F3 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		6ACE770B1B8A6027000924F3 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		6ACE770D1B8A610C000924F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6ACE770F1B8A6115000924F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6ACE77121B8A8D00000924F3 /* SpotifyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyHelper.h; sourceTree = "<group>"; };
+		6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACE77101B8A6115000924F3 /* SystemConfiguration.framework in Frameworks */,
+				6ACE770E1B8A610C000924F3 /* AVFoundation.framework in Frameworks */,
+				6ACE770C1B8A6027000924F3 /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +90,8 @@
 		6A3DC01A1B7FE6F30078EF11 = {
 			isa = PBXGroup;
 			children = (
+				6ACE770F1B8A6115000924F3 /* SystemConfiguration.framework */,
+				6ACE770D1B8A610C000924F3 /* AVFoundation.framework */,
 				6A3DC0251B7FE6F30078EF11 /* proyecto_spotify */,
 				6A3DC03F1B7FE6F30078EF11 /* proyecto_spotifyTests */,
 				6A3DC0241B7FE6F30078EF11 /* Products */,
@@ -81,6 +110,9 @@
 		6A3DC0251B7FE6F30078EF11 /* proyecto_spotify */ = {
 			isa = PBXGroup;
 			children = (
+				6ACE77111B8A8CDC000924F3 /* helpers */,
+				6ACE770A1B8A5FD4000924F3 /* frameworks */,
+				6ACE76FA1B8A5C1E000924F3 /* entities */,
 				6A3DC02A1B7FE6F30078EF11 /* AppDelegate.h */,
 				6A3DC02B1B7FE6F30078EF11 /* AppDelegate.m */,
 				6A3DC02D1B7FE6F30078EF11 /* ViewController.h */,
@@ -88,6 +120,12 @@
 				6A3DC0301B7FE6F30078EF11 /* Main.storyboard */,
 				6A3DC0331B7FE6F30078EF11 /* Images.xcassets */,
 				6A3DC0351B7FE6F30078EF11 /* LaunchScreen.xib */,
+				6ACE77011B8A5D75000924F3 /* ArtistSearchTableViewController.h */,
+				6ACE77021B8A5D75000924F3 /* ArtistSearchTableViewController.m */,
+				6ACE77041B8A5E65000924F3 /* SongListTableViewController.h */,
+				6ACE77051B8A5E65000924F3 /* SongListTableViewController.m */,
+				6ACE77071B8A5EB2000924F3 /* PlayerViewController.h */,
+				6ACE77081B8A5EB2000924F3 /* PlayerViewController.m */,
 				6A3DC0261B7FE6F30078EF11 /* Supporting Files */,
 			);
 			path = proyecto_spotify;
@@ -117,6 +155,34 @@
 				6A3DC0411B7FE6F30078EF11 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6ACE76FA1B8A5C1E000924F3 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				6ACE76FB1B8A5C4D000924F3 /* Artist.h */,
+				6ACE76FC1B8A5C4D000924F3 /* Artist.m */,
+				6ACE76FE1B8A5C83000924F3 /* Song.h */,
+				6ACE76FF1B8A5C83000924F3 /* Song.m */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		6ACE770A1B8A5FD4000924F3 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ACE770B1B8A6027000924F3 /* Spotify.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		6ACE77111B8A8CDC000924F3 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6ACE77121B8A8D00000924F3 /* SpotifyHelper.h */,
+				6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACE77001B8A5C83000924F3 /* Song.m in Sources */,
 				6A3DC02F1B7FE6F30078EF11 /* ViewController.m in Sources */,
+				6ACE77031B8A5D75000924F3 /* ArtistSearchTableViewController.m in Sources */,
+				6ACE77061B8A5E65000924F3 /* SongListTableViewController.m in Sources */,
+				6ACE77141B8A8D00000924F3 /* SpotifyHelper.m in Sources */,
 				6A3DC02C1B7FE6F30078EF11 /* AppDelegate.m in Sources */,
+				6ACE77091B8A5EB2000924F3 /* PlayerViewController.m in Sources */,
+				6ACE76FD1B8A5C4D000924F3 /* Artist.m in Sources */,
 				6A3DC0291B7FE6F30078EF11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,8 +421,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/proyecto_spotify/frameworks",
+				);
 				INFOPLIST_FILE = proyecto_spotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -359,8 +436,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/proyecto_spotify/frameworks",
+				);
 				INFOPLIST_FILE = proyecto_spotify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -418,6 +500,7 @@
 				6A3DC0481B7FE6F30078EF11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A3DC0491B7FE6F30078EF11 /* Build configuration list for PBXNativeTarget "proyecto_spotifyTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +509,7 @@
 				6A3DC04B1B7FE6F30078EF11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
