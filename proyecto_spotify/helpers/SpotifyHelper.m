@@ -77,4 +77,46 @@ static SPTSession* session = nil;
     
 }
 
++(void)searchForArtist:(NSString *)artist withCallback:(SEL)callback{
+    if([self getSession] != nil){
+        [SPTSearch performSearchWithQuery:@"incubus" queryType:SPTQueryTypeArtist accessToken:[self getSession].accessToken callback:^(NSError *error, id object) {
+            if (error != nil || [(SPTListPage*)object items].count <= 0) {
+                NSLog(@"*** error while searching for Incubus %@", error);
+                return;
+                
+            }
+            NSArray* results = [(SPTListPage*)object items];
+            NSLog(@"SEARCH RESULTS: \n%@", results);
+            //[target performSelector:callback:results];
+            
+        }];
+    }
+    else{
+        NSLog(@"Session was nil");
+    }
+
+}
+
++(void)searchForArtist:(NSString *)artist withTarget:(ArtistSearchTableViewController *)target{
+    if([self getSession] != nil){
+        [SPTSearch performSearchWithQuery:artist queryType:SPTQueryTypeArtist accessToken:[self getSession].accessToken callback:
+            ^(NSError *error, id object) {
+            if (error != nil || [(SPTListPage*)object items].count <= 0) {
+                NSLog(@"*** error while searching for Incubus %@", error);
+                return;
+                
+            }
+            NSArray* results = [(SPTListPage*)object items];
+            NSMutableArray* mResults = [NSMutableArray arrayWithArray:results];
+            NSLog(@"SEARCH RESULTS: \n%@", results);
+            [target updateArtists:mResults];
+            
+        }];
+    }
+    else{
+        NSLog(@"Session was nil");
+    }
+
+}
+
 @end

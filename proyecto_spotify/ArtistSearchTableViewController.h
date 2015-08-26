@@ -11,4 +11,7 @@
 
 @interface ArtistSearchTableViewController : UITableViewController
 
+-(void) updateArtists:(NSMutableArray*)newArtists;
+-(void) requestArtistSearch:(NSString*)artistName;
+
 @end

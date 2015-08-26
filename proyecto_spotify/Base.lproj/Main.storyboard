@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YGK-ZY-seZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YGK-ZY-seZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -67,7 +67,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="80" id="Q0j-FL-2o7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="80" id="Q0j-FL-2o7" customClass="ArtistCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q0j-FL-2o7" id="azZ-EN-3AS">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -94,6 +94,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="artistImage" destination="Wjc-2t-R39" id="3xT-Yr-gu1"/>
+                                    <outlet property="artistName" destination="xwg-xP-2jI" id="4Bg-Ys-cdn"/>
                                     <segue destination="I6P-oK-yJ2" kind="show" identifier="ViewArtistSongsSegue" id="phb-RZ-qpY"/>
                                 </connections>
                             </tableViewCell>
@@ -118,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="80" id="PBe-1I-eR4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="80" id="PBe-1I-eR4" customClass="SongCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PBe-1I-eR4" id="L74-NQ-Jck">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -146,6 +148,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="albumImage" destination="daS-wv-SYK" id="ISE-Mj-ytO"/>
+                                    <outlet property="songName" destination="bBV-P8-pvp" id="Fbx-Kw-Jxh"/>
                                     <segue destination="koR-np-Cbt" kind="showDetail" identifier="PlaySongSegue" id="Tg2-gE-5n2"/>
                                 </connections>
                             </tableViewCell>

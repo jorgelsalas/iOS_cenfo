@@ -8,6 +8,8 @@
 
 #import <Spotify/Spotify.h>
 #import "ArtistSearchTableViewController.h"
+#import "ArtistCell.h"
+#import "SpotifyHelper.h"
 
 @interface ArtistSearchTableViewController()
 
@@ -18,6 +20,20 @@
 
 @implementation ArtistSearchTableViewController
 
+- (void)viewDidLoad{
+    [SpotifyHelper searchForArtist:@"Oasis" withTarget:self];
+}
+
+
+
+-(void) updateArtists:(NSMutableArray *)newArtists{
+    self.artists = newArtists;
+    [self.tableView reloadData];
+}
+
+-(void) requestArtistSearch:(NSString *)artistName{
+    [SpotifyHelper searchForArtist];
+}
 
 #pragma mark - Table view data source
 
@@ -33,12 +49,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
+    ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    SPTArtist* artist = self.artists[indexPath.row];
-    cell.textLabel.text = artist.name;
-    
+    SPTPartialArtist* artist = self.artists[indexPath.row];
+    cell.artistName.text = artist.name;
     return cell;
 }
 

@@ -8,6 +8,7 @@
 
 #import <Spotify/Spotify.h>
 #import <Foundation/Foundation.h>
+#import "ArtistSearchTableViewController.h"
 
 @interface SpotifyHelper : NSObject
 //@property (nonatomic, strong) SPTSession* session;
@@ -17,5 +18,7 @@
 +(void) setSession:(SPTSession *)session;
 +(SPTSession*) getSession;
 +(void) searchForArtist;
++(void) searchForArtist:(NSString*)artist withCallback:(SEL)callback;
++(void) searchForArtist:(NSString*)artist withTarget:(ArtistSearchTableViewController*)target;
 @end
 
