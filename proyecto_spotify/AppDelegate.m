@@ -115,8 +115,17 @@
         NSLog(@"ARTIST[0] ID: \n%@", [artist identifier]);
         //NSLog(@"ARTIST[0] Genres: \n%@", [[artist genres]objectAtIndex:0]);
         //NSLog(@"ARTIST[0] followers: \n%ld", [artist followerCount]);
-                
         
+        
+        for (SPTArtist* artist2 in results) {
+            NSLog(@"ARTIST2 Name: \n%@", [artist2 name]);
+            NSLog(@"ARTIST2 ID: \n%@", artist2.identifier);
+            NSLog(@"ARTIST2 playable URL: \n%@", artist2.playableUri);
+            NSLog(@"ARTIST2 sharing URL: \n%@", artist2.sharingURL);
+        }
+        
+        
+        //SPTPartialArtist* fullArtist;
     }];
     
 }
