@@ -9,7 +9,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArtistSearchTableViewController : UITableViewController
+@interface ArtistSearchTableViewController : UITableViewController <UISearchBarDelegate>
+@property(nonatomic, strong) IBOutlet UISearchBar* mySearchBar;
 
 -(void) updateArtists:(NSMutableArray*)newArtists;
 -(void) requestArtistSearch:(NSString*)artistName;

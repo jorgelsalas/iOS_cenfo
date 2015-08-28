@@ -63,8 +63,8 @@
     if(result){
         //Do something if it was successful, in this case start playing
         //[self playUsingSession:[SpotifyHelper getSession]];
-        [self searchForArtistUsingSession:[SpotifyHelper getSession]];
-        //[SpotifyHelper searchForArtist];
+        //[self searchForArtistUsingSession:[SpotifyHelper getSession]];
+        [SpotifyHelper searchForArtist];
     }
     else{
     
@@ -75,7 +75,7 @@
 -(void)playUsingSession:(SPTSession *)session {
     //[self searchForArtistUsingSession:session];
     
-    [SpotifyHelper searchForArtist];
+    //[SpotifyHelper searchForArtist];
     
     // Create a new player if needed
     if (self.player == nil) {

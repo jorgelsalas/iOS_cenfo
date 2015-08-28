@@ -106,6 +106,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Artists" id="OdT-FV-DJO"/>
+                    <connections>
+                        <outlet property="mySearchBar" destination="88g-Ro-1f2" id="j5o-86-Oaf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZN-EF-j6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

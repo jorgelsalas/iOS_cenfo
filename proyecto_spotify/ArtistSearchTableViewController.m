@@ -21,10 +21,19 @@
 @implementation ArtistSearchTableViewController
 
 - (void)viewDidLoad{
-    [SpotifyHelper searchForArtist:@"Oasis" withTarget:self];
+    [super viewDidLoad];
+    //NSLog(@"SEARCHING FOR OASIS");
+    //[SpotifyHelper searchForArtist:@"Oasis" withTarget:self];
+    self.mySearchBar = [[UISearchBar alloc] init];
+    [self.mySearchBar setDelegate:self];
+    //NSLog(@"SEARCHING FOR OASIS %@", [self.mySearchBar.delegate description]);
+    
+    //self.mySearchBar.delegate = self;
 }
 
-
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@"SEARCH BAR HAS: \n%@", searchBar.text);
+}
 
 -(void) updateArtists:(NSMutableArray *)newArtists{
     self.artists = newArtists;
