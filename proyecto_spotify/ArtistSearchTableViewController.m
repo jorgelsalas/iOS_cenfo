@@ -24,7 +24,6 @@
     [super viewDidLoad];
     //NSLog(@"SEARCHING FOR OASIS");
     //[SpotifyHelper searchForArtist:@"Oasis" withTarget:self];
-    self.mySearchBar = [[UISearchBar alloc] init];
     [self.mySearchBar setDelegate:self];
     //NSLog(@"SEARCHING FOR OASIS %@", [self.mySearchBar.delegate description]);
     
@@ -33,6 +32,7 @@
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSLog(@"SEARCH BAR HAS: \n%@", searchBar.text);
+    [SpotifyHelper searchForArtist:searchBar.text withTarget:self];
 }
 
 -(void) updateArtists:(NSMutableArray *)newArtists{
