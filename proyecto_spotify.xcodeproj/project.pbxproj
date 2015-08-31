@@ -23,6 +23,7 @@
 		6ACE770E1B8A610C000924F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE770D1B8A610C000924F3 /* AVFoundation.framework */; };
 		6ACE77101B8A6115000924F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE770F1B8A6115000924F3 /* SystemConfiguration.framework */; };
 		6ACE77141B8A8D00000924F3 /* SpotifyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */; };
+		CF7D9D471B93D21B00C4EB8B /* SpotifyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7D9D461B93D21B00C4EB8B /* SpotifyAPI.m */; };
 		CFA2453A1B8D847E00B90975 /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA245391B8D847E00B90975 /* SongCell.m */; };
 		CFA2453D1B8D849F00B90975 /* ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA2453C1B8D849F00B90975 /* ArtistCell.m */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		6ACE770F1B8A6115000924F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6ACE77121B8A8D00000924F3 /* SpotifyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyHelper.h; sourceTree = "<group>"; };
 		6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyHelper.m; sourceTree = "<group>"; };
+		CF7D9D451B93D21B00C4EB8B /* SpotifyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyAPI.h; sourceTree = "<group>"; };
+		CF7D9D461B93D21B00C4EB8B /* SpotifyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyAPI.m; sourceTree = "<group>"; };
 		CFA245381B8D847E00B90975 /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
 		CFA245391B8D847E00B90975 /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
 		CFA2453B1B8D849F00B90975 /* ArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistCell.h; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 		6A3DC0251B7FE6F30078EF11 /* proyecto_spotify */ = {
 			isa = PBXGroup;
 			children = (
+				CF533C131B93BB4700E4A295 /* webapi */,
 				CFA245341B8D83FE00B90975 /* uicomponents */,
 				6ACE77111B8A8CDC000924F3 /* helpers */,
 				6ACE770A1B8A5FD4000924F3 /* frameworks */,
@@ -190,6 +194,15 @@
 				6ACE77131B8A8D00000924F3 /* SpotifyHelper.m */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		CF533C131B93BB4700E4A295 /* webapi */ = {
+			isa = PBXGroup;
+			children = (
+				CF7D9D451B93D21B00C4EB8B /* SpotifyAPI.h */,
+				CF7D9D461B93D21B00C4EB8B /* SpotifyAPI.m */,
+			);
+			path = webapi;
 			sourceTree = "<group>";
 		};
 		CFA245341B8D83FE00B90975 /* uicomponents */ = {
@@ -306,6 +319,7 @@
 				6ACE77001B8A5C83000924F3 /* Song.m in Sources */,
 				6A3DC02F1B7FE6F30078EF11 /* ViewController.m in Sources */,
 				6ACE77031B8A5D75000924F3 /* ArtistSearchTableViewController.m in Sources */,
+				CF7D9D471B93D21B00C4EB8B /* SpotifyAPI.m in Sources */,
 				6ACE77061B8A5E65000924F3 /* SongListTableViewController.m in Sources */,
 				CFA2453A1B8D847E00B90975 /* SongCell.m in Sources */,
 				CFA2453D1B8D849F00B90975 /* ArtistCell.m in Sources */,

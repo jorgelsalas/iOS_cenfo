@@ -22,12 +22,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    //NSLog(@"SEARCHING FOR OASIS");
-    //[SpotifyHelper searchForArtist:@"Oasis" withTarget:self];
-    [self.mySearchBar setDelegate:self];
-    //NSLog(@"SEARCHING FOR OASIS %@", [self.mySearchBar.delegate description]);
-    
-    //self.mySearchBar.delegate = self;
+    self.mySearchBar.delegate = self;
 }
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -61,8 +56,30 @@
     ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    SPTPartialArtist* artist = self.artists[indexPath.row];
+    SPTArtist* artist = self.artists[indexPath.row];
     cell.artistName.text = artist.name;
+    
+    if ([artist.images count] > 0) {
+        SPTImage* image = [artist.images objectAtIndex:0];
+        dispatch_async(dispatch_get_global_queue(0,0), ^{
+            NSData * data = [[NSData alloc] initWithContentsOfURL: image.imageURL];
+            if ( data == nil ){
+                NSLog(@"Image of artist %@ has no data", artist.name);
+                return;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // WARNING: is the cell still using the same data by this point??
+                cell.artistImage.image = [UIImage imageWithData: data];
+            });
+        });
+    }
+    else{
+        NSLog(@"Artist %@ has no images", artist.name);
+    }
+    
+    
+    
     return cell;
 }
 

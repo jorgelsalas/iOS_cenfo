@@ -20,5 +20,7 @@
 +(void) searchForArtist;
 +(void) searchForArtist:(NSString*)artist withCallback:(SEL)callback;
 +(void) searchForArtist:(NSString*)artist withTarget:(ArtistSearchTableViewController*)target;
++(void) searchForFullArtists:(NSArray*)artistURIs withTarget:(ArtistSearchTableViewController*)target;
++(void) promoteToFullArtist:(NSString*)artistID;
 @end
 
