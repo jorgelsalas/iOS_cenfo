@@ -9,6 +9,7 @@
 #import <Spotify/Spotify.h>
 #import <Foundation/Foundation.h>
 #import "ArtistSearchTableViewController.h"
+#import "SongListTableViewController.h"
 
 @interface SpotifyHelper : NSObject
 //@property (nonatomic, strong) SPTSession* session;
@@ -22,5 +23,6 @@
 +(void) searchForArtist:(NSString*)artist withTarget:(ArtistSearchTableViewController*)target;
 +(void) searchForFullArtists:(NSArray*)artistURIs withTarget:(ArtistSearchTableViewController*)target;
 +(void) promoteToFullArtist:(NSString*)artistID;
++(void) searchForTopSongs:(SPTArtist*)artist withTarget:(SongListTableViewController*)target;
 @end
 

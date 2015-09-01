@@ -8,6 +8,7 @@
 
 #import <Spotify/Spotify.h>
 #import "ArtistSearchTableViewController.h"
+#import "SongListTableViewController.h"
 #import "ArtistCell.h"
 #import "SpotifyHelper.h"
 
@@ -77,10 +78,21 @@
     else{
         NSLog(@"Artist %@ has no images", artist.name);
     }
-    
-    
-    
     return cell;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"ViewArtistSongsSegue"]) {
+        //NSIndexPath* indexPath = sender;
+        NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+        SPTArtist* artist = [self.artists objectAtIndex:indexPath.row];
+        //UINavigationController* navController = segue.destinationViewController;
+        //SongListTableViewController* songListController = [navController.viewControllers firstObject];
+        SongListTableViewController* songListController = segue.destinationViewController;
+        
+        songListController.artist = artist;
+    }
 }
 
 @end

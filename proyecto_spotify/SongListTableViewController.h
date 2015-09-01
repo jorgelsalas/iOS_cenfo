@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Spotify/Spotify.h>
+
 
 @interface SongListTableViewController : UITableViewController
+
+@property (nonatomic, strong) SPTArtist* artist;
+@property (nonatomic,strong) NSMutableArray* tracks;
+
+-(void) updateTracks:(NSMutableArray*) newTracks;
 
 @end

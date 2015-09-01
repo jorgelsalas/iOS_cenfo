@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Spotify/Spotify.h>
 
 @interface PlayerViewController : UIViewController
+
+@property (nonatomic, strong) SPTTrack* currentTrack;
 
 @end

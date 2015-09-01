@@ -158,4 +158,16 @@ static SPTSession* session = nil;
 
 }
 
++(void) searchForTopSongs:(SPTArtist *)artist withTarget:(SongListTableViewController *)target{
+    [artist requestTopTracksForTerritory:@"us" withSession:[self getSession] callback:^(NSError *error, id object) {
+        if (error != nil) {
+            NSLog(@"Error while retrieving top songs from %@. Error:\n%@", artist.name, error);
+            return;
+        }
+        NSArray* results = object;
+        NSMutableArray* mResults = [NSMutableArray arrayWithArray:results];
+        [target updateTracks:mResults];
+    }];
+}
+
 @end
