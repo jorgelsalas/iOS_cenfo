@@ -12,6 +12,7 @@
 @implementation SpotifyHelper
 
 static SPTSession* session = nil;
+static SPTAudioStreamingController* player = nil;
 
 +(void) requestSessionUsingApplication:(UIApplication *)application{
     // Override point for customization after application launch.
@@ -43,10 +44,9 @@ static SPTSession* session = nil;
         }];
         return YES;
     }
-    
     return NO;
-
 }
+
 ///*
 +(void) setSession:(SPTSession *)newSession{
     session = newSession;
@@ -54,6 +54,14 @@ static SPTSession* session = nil;
 
 +(SPTSession*) getSession{
     return session;
+}
+
++(void) setPlayer:(SPTAudioStreamingController *)newPlayer{
+    player = newPlayer;
+}
+
++(SPTAudioStreamingController*) getPlayer{
+    return player;
 }
 //*/
 
@@ -168,6 +176,163 @@ static SPTSession* session = nil;
         NSMutableArray* mResults = [NSMutableArray arrayWithArray:results];
         [target updateTracks:mResults];
     }];
+}
+
++(void) playSong:(SPTTrack *)track {
+    // Create a new player if needed
+    if ([self getPlayer] == nil) {
+        [self setPlayer:[[SPTAudioStreamingController alloc] initWithClientId:[SPTAuth defaultInstance].clientID]];
+    }
+    
+    [[self getPlayer] loginWithSession:[self getSession] callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"*** Logging in while trying to play a track got an error: %@", error);
+            return;
+        }
+        
+        //NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
+        [[self getPlayer] playURIs:@[track.uri] fromIndex:0 callback:^(NSError *error) {
+            NSLog(@"*** Starting playback got an error: %@", error);
+            return;
+        }];
+    }];
+}
+
++(void) playSongList:(NSMutableArray *)tracks {
+    // Create a new player if needed
+    if ([self getPlayer] == nil) {
+        [self setPlayer:[[SPTAudioStreamingController alloc] initWithClientId:[SPTAuth defaultInstance].clientID]];
+    }
+    
+    [[self getPlayer] loginWithSession:[self getSession] callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"*** Logging in while trying to play a track got an error: %@", error);
+            return;
+        }
+        
+        NSMutableArray* songUris = [[NSMutableArray alloc] init];
+        for (SPTTrack* track in tracks) {
+            [songUris addObject:track.uri];
+        }
+        
+        //NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
+        [[self getPlayer] playURIs:songUris fromIndex:0 callback:^(NSError *error) {
+            NSLog(@"*** Starting playback got an error: %@", error);
+            return;
+        }];
+    }];
+}
+
++(void) pauseSong{
+    NSLog(@"Pushed PAUSE");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        [[self getPlayer] setIsPlaying:NO callback:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while pausing the player %@", error);
+            }
+            return;
+        }];
+    }
+}
+
+
++(void) playOrResumeSong{
+    NSLog(@"Pushed PLAY");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        [[self getPlayer] setIsPlaying:YES callback:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while resuming the player %@", error);
+            }
+            return;
+        }];
+    }
+}
+
++(void) goToNextSong{
+    NSLog(@"Pushed NEXT");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        NSLog(@"Track index before going to next:\n%d", [[self getPlayer] currentTrackIndex]);
+        NSLog(@"Track uri before going to next:\n%@", [[self getPlayer] currentTrackURI]);
+        NSLog(@"Track list size before going to next:\n%d", [[self getPlayer] trackListSize]);
+        [[self getPlayer] skipNext:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while going to next song %@", error);
+                return;
+            }
+            NSLog(@"Track index after going to previous:\n%d", [[self getPlayer] currentTrackIndex]);
+            NSLog(@"Track uri after going to previous:\n%@", [[self getPlayer] currentTrackURI]);
+            NSLog(@"Track list size after going to previous:\n%d", [[self getPlayer] trackListSize]);
+        }];
+    }
+}
+
++(void) goToPreviousSong{
+    NSLog(@"Pushed PREV");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        //SPTAudioStreamingController* pl = [self getPlayer];
+        NSLog(@"Track index before going to previous:\n%d", [[self getPlayer] currentTrackIndex]);
+        NSLog(@"Track uri before going to previous:\n%@", [[self getPlayer] currentTrackURI]);
+        NSLog(@"Track list size before going to previous:\n%d", [[self getPlayer] trackListSize]);
+        
+        //[[self getPlayer] currentTrackIndex];
+        //[[self getPlayer] currentTrackURI];
+        //[[self getPlayer] trackListSize];
+        
+        [[self getPlayer] skipPrevious:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while going to previous song %@", error);
+                return;
+            }
+            NSLog(@"Track index after going to previous:\n%d", [[self getPlayer] currentTrackIndex]);
+            NSLog(@"Track uri after going to previous:\n%@", [[self getPlayer] currentTrackURI]);
+            NSLog(@"Track list size after going to previous:\n%d", [[self getPlayer] trackListSize]);
+        }];
+    }
+}
+
++(void)goToPreviousSongWithTarget:(PlayerViewController *)target{
+    NSLog(@"Pushed PREV");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        [[self getPlayer] skipPrevious:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while going to previous song %@", error);
+                return;
+            }
+            [target updateCurrentTrack];
+        }];
+    }
+
+}
+
++(void) goToNextSongWithTarget:(PlayerViewController *)target{
+    NSLog(@"Pushed NEXT");
+    if ([self getPlayer] == nil) {
+        NSLog(@"Streaming player has not been initialized");
+    }
+    else{
+        [[self getPlayer] skipNext:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"Error while going to next song %@", error);
+                return;
+            }
+            [target updateCurrentTrack];
+        }];
+    }
 }
 
 @end

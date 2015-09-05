@@ -18,20 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /*
-    // Override point for customization after application launch.
-    [[SPTAuth defaultInstance] setClientID:@"70b45c70fa51493795c5a6456123f7cd"];
-    [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:@"spotproject://callback"]];
-    [[SPTAuth defaultInstance] setRequestedScopes:@[SPTAuthStreamingScope]];
-    
-    // Construct a login URL and open it
-    NSURL *loginURL = [[SPTAuth defaultInstance] loginURL];
-    
-    // Opening a URL in Safari close to application launch may trigger
-    // an iOS bug, so we wait a bit before doing so.
-    [application performSelector:@selector(openURL:)
-                      withObject:loginURL afterDelay:0.1];
-    //*/
     [SpotifyHelper requestSessionUsingApplication:application];
     return YES;
 }
@@ -41,24 +27,7 @@
            openURL:(NSURL *)url
  sourceApplication:(NSString *)sourceApplication
         annotation:(id)annotation {
-    /*
-    // Ask SPTAuth if the URL given is a Spotify authentication callback
-    if ([[SPTAuth defaultInstance] canHandleURL:url]) {
-        [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url callback:^(NSError *error, SPTSession *session) {
-            
-            if (error != nil) {
-                NSLog(@"*** Auth error: %@", error);
-                return;
-            }
-            
-            // Call the -playUsingSession: method to play a track
-            [self playUsingSession:session];
-        }];
-        return YES;
-    }
     
-    return NO;
-    //*/
     BOOL result = [SpotifyHelper handleAuthRequestWithUrl:url];
     if(result){
         //Do something if it was successful, in this case start playing

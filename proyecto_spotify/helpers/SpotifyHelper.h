@@ -10,19 +10,31 @@
 #import <Foundation/Foundation.h>
 #import "ArtistSearchTableViewController.h"
 #import "SongListTableViewController.h"
+#import "PlayerViewController.h"
 
 @interface SpotifyHelper : NSObject
 //@property (nonatomic, strong) SPTSession* session;
+//@property (nonatomic, strong) SPTAudioStreamingController *player;
 
 +(void) requestSessionUsingApplication:(UIApplication*)application;
 +(BOOL) handleAuthRequestWithUrl:(NSURL*)url;
 +(void) setSession:(SPTSession *)session;
 +(SPTSession*) getSession;
++(void) setPlayer:(SPTAudioStreamingController *)newPlayer;
++(SPTAudioStreamingController*) getPlayer;
 +(void) searchForArtist;
 +(void) searchForArtist:(NSString*)artist withCallback:(SEL)callback;
 +(void) searchForArtist:(NSString*)artist withTarget:(ArtistSearchTableViewController*)target;
 +(void) searchForFullArtists:(NSArray*)artistURIs withTarget:(ArtistSearchTableViewController*)target;
 +(void) promoteToFullArtist:(NSString*)artistID;
 +(void) searchForTopSongs:(SPTArtist*)artist withTarget:(SongListTableViewController*)target;
++(void) playSong:(SPTTrack*)track;
++(void) playSongList:(NSMutableArray*)tracks;
++(void) pauseSong;
++(void) playOrResumeSong;
++(void) goToNextSong;
++(void) goToPreviousSong;
++(void) goToNextSongWithTarget:(PlayerViewController*)target;
++(void) goToPreviousSongWithTarget:(PlayerViewController*)target;
 @end
 

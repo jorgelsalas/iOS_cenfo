@@ -153,7 +153,7 @@
                                 <connections>
                                     <outlet property="albumImage" destination="daS-wv-SYK" id="ISE-Mj-ytO"/>
                                     <outlet property="songName" destination="bBV-P8-pvp" id="Fbx-Kw-Jxh"/>
-                                    <segue destination="koR-np-Cbt" kind="showDetail" identifier="PlaySongSegue" id="Tg2-gE-5n2"/>
+                                    <segue destination="koR-np-Cbt" kind="showDetail" identifier="PlaySongSegue" id="w40-r0-qA0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -185,18 +185,27 @@
                                 <state key="normal" title="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pauseSong:" destination="koR-np-Cbt" eventType="touchUpInside" id="LCw-8Z-4At"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ut-81-miK">
                                 <rect key="frame" x="277" y="550" width="158" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="playSong:" destination="koR-np-Cbt" eventType="touchUpInside" id="3j4-sT-ONM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIk-Ci-RhS">
                                 <rect key="frame" x="443" y="550" width="141" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToNextSong:" destination="koR-np-Cbt" eventType="touchUpInside" id="r1N-yL-7eZ"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbn-o9-PWn">
                                 <rect key="frame" x="88" y="305" width="240" height="128"/>
@@ -216,6 +225,9 @@
                                 <state key="normal" title="Prev">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToPreviousSong:" destination="koR-np-Cbt" eventType="touchUpInside" id="BM5-kB-O78"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,10 +257,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UjQ-lh-qW9"/>
+                    <connections>
+                        <outlet property="albumImage" destination="sbn-o9-PWn" id="hje-zz-Uqf"/>
+                        <outlet property="songNameLabel" destination="mgo-hQ-j1f" id="1zh-Z5-p5z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5E-ak-4gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3682" y="104"/>
+            <point key="canvasLocation" x="3746" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1FF-kR-sZB">

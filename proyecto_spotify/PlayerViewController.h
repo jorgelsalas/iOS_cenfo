@@ -11,6 +11,14 @@
 
 @interface PlayerViewController : UIViewController
 
+@property (nonatomic,strong) NSMutableArray* tracks;
 @property (nonatomic, strong) SPTTrack* currentTrack;
+@property (nonatomic, strong) NSNumber* trackPointer;
+@property (nonatomic, weak) IBOutlet UIImageView *albumImage;
+@property (nonatomic, weak) IBOutlet UILabel* songNameLabel;
+
+-(void) updateTrackImage;
+-(void) updateTrackName;
+-(void) updateCurrentTrack;
 
 @end

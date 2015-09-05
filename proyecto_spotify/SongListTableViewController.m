@@ -21,6 +21,7 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [SpotifyHelper searchForTopSongs:self.artist withTarget:self];
 }
 
@@ -79,6 +80,8 @@
         PlayerViewController* playerController = segue.destinationViewController;
         
         playerController.currentTrack = track;
+        playerController.tracks = self.tracks;
+        playerController.trackPointer = [NSNumber numberWithInteger:indexPath.row];
     }
 }
 
