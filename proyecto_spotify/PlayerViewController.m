@@ -10,10 +10,9 @@
 #import "SpotifyHelper.h"
 
 @implementation PlayerViewController
-//TODO: Cargar imagen, enviar grupo de tracks a player, odificar imagen al ir a prev y next
+
 //METER EN UN NAV CONTROLLER PARA PODER REGRESAR
-//AGREGAR CALLBACKS AL PLAYER PARA ACTUALIZAR EL CURRENT TRACK, IMAGEN Y NOMBRE EN LA PANTALLA
-//UTILIZAR PROPIEDAD CURRENT TRACK INDEX DEL PLAYER
+//TODO: VER PORQUE NO REPRODUCE NUNCA EL TRACK 4 (INDEX 3) DEL PLAYLIST
 
 -(void) viewDidLoad{
     [super viewDidLoad];
@@ -29,14 +28,6 @@
 - (IBAction)goToPreviousSong:(id)sender {
     
     if([[SpotifyHelper getPlayer] currentTrackIndex] > 0){
-        //NSLog(@"Track BEFORE going to next: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
-        //[SpotifyHelper goToPreviousSong];
-        //self.trackPointer = [NSNumber numberWithLong:([self.trackPointer longValue] - 1)];
-        //self.currentTrack = [self.tracks objectAtIndex:[self.trackPointer integerValue]];
-        //self.currentTrack = [self.tracks objectAtIndex:[[SpotifyHelper getPlayer] currentTrackIndex]];
-        //NSLog(@"Track AFTER going to next: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
-        //[self updateTrackImage];
-        //[self updateTrackName];
         [SpotifyHelper goToPreviousSongWithTarget:self];
     }
     else{
@@ -54,22 +45,12 @@
 }
 
 - (IBAction)goToNextSong:(id)sender {
-    //NOTA PUEDE HABER RACE CONDITIONS QUE HAGAN QUE NO ACTUALICE BIEN
     if([[SpotifyHelper getPlayer] currentTrackIndex] < ( [self.tracks count]) - 1){
-        //NSLog(@"Track BEFORE going to next: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
-        //[SpotifyHelper goToNextSong];
-        //self.trackPointer = [NSNumber numberWithLong:([self.trackPointer longValue] + 1)];
-        //self.currentTrack = [self.tracks objectAtIndex:[self.trackPointer integerValue]];
-        //self.currentTrack = [self.tracks objectAtIndex:[[SpotifyHelper getPlayer] currentTrackIndex]];
-        //NSLog(@"Track AFTER going to next: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
-        //[self updateTrackImage];
-        //[self updateTrackName];
         [SpotifyHelper goToNextSongWithTarget:self];
     }
     else{
         NSLog(@"Did not call goToNext method");
     }
-    
 }
 
 -(void) updateTrackImage{
@@ -82,9 +63,7 @@
                 NSLog(@"Image of track %@ has no data", self.currentTrack.name);
                 return;
             }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                // WARNING: is the cell still using the same data by this point??
                 self.albumImage.image = [UIImage imageWithData: data];
             });
         });
@@ -100,9 +79,9 @@
 }
 
 -(void) updateCurrentTrack{
-    NSLog(@"Track BEFORE changing: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
+    NSLog(@"Track BEFORE changing: %d: %@ - %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name, self.currentTrack.uri);
     self.currentTrack = [self.tracks objectAtIndex:[[SpotifyHelper getPlayer] currentTrackIndex]];
-    NSLog(@"Track AFTER changing: %d: %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name);
+    NSLog(@"Track AFTER changing: %d: %@ - %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name, self.currentTrack.uri);
     [self updateTrackImage];
     [self updateTrackName];
 }

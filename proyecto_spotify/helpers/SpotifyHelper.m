@@ -213,11 +213,14 @@ static SPTAudioStreamingController* player = nil;
         NSMutableArray* songUris = [[NSMutableArray alloc] init];
         for (SPTTrack* track in tracks) {
             [songUris addObject:track.uri];
+            NSLog(@"Added URI: %@", track.uri);
         }
         
         //NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
         [[self getPlayer] playURIs:songUris fromIndex:0 callback:^(NSError *error) {
-            NSLog(@"*** Starting playback got an error: %@", error);
+            if(nil!=error){
+                NSLog(@"*** Starting playback got an error: %@", error);
+            }
             return;
         }];
     }];
@@ -302,7 +305,7 @@ static SPTAudioStreamingController* player = nil;
     }
 }
 
-+(void)goToPreviousSongWithTarget:(PlayerViewController *)target{
++(void) goToPreviousSongWithTarget:(PlayerViewController *)target{
     NSLog(@"Pushed PREV");
     if ([self getPlayer] == nil) {
         NSLog(@"Streaming player has not been initialized");
