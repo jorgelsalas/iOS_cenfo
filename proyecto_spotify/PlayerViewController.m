@@ -19,7 +19,7 @@
     NSLog(@"Track List from segue contains %@", self.tracks);
     NSLog(@"Current track from segue contains %@", self.currentTrack);
     NSLog(@"Track pointer from segue contains %@", self.trackPointer);
-    [SpotifyHelper playSongList:self.tracks];
+    [SpotifyHelper playSongList:self.tracks fromIndex:self.trackPointer];
     [self updateTrackImage];
     [self updateTrackName];
 }

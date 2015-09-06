@@ -30,6 +30,7 @@
 +(void) searchForTopSongs:(SPTArtist*)artist withTarget:(SongListTableViewController*)target;
 +(void) playSong:(SPTTrack*)track;
 +(void) playSongList:(NSMutableArray*)tracks;
++(void) playSongList:(NSMutableArray*)tracks fromIndex:(NSNumber*)index;
 +(void) pauseSong;
 +(void) playOrResumeSong;
 +(void) goToNextSong;

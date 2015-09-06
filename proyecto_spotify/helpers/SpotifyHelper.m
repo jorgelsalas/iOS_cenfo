@@ -216,8 +216,34 @@ static SPTAudioStreamingController* player = nil;
             NSLog(@"Added URI: %@", track.uri);
         }
         
-        //NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
         [[self getPlayer] playURIs:songUris fromIndex:0 callback:^(NSError *error) {
+            if(nil!=error){
+                NSLog(@"*** Starting playback got an error: %@", error);
+            }
+            return;
+        }];
+    }];
+}
+
++(void) playSongList:(NSMutableArray *)tracks fromIndex:(NSNumber *)index{
+    // Create a new player if needed
+    if ([self getPlayer] == nil) {
+        [self setPlayer:[[SPTAudioStreamingController alloc] initWithClientId:[SPTAuth defaultInstance].clientID]];
+    }
+    
+    [[self getPlayer] loginWithSession:[self getSession] callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"*** Logging in while trying to play a track got an error: %@", error);
+            return;
+        }
+        
+        NSMutableArray* songUris = [[NSMutableArray alloc] init];
+        for (SPTTrack* track in tracks) {
+            [songUris addObject:track.uri];
+            NSLog(@"Added URI: %@", track.uri);
+        }
+        
+        [[self getPlayer] playURIs:songUris fromIndex:[index intValue] callback:^(NSError *error) {
             if(nil!=error){
                 NSLog(@"*** Starting playback got an error: %@", error);
             }
