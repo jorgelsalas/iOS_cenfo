@@ -38,5 +38,6 @@
 +(void) goToNextSongWithTarget:(PlayerViewController*)target;
 +(void) goToPreviousSongWithTarget:(PlayerViewController*)target;
 +(void) setPlayerDelegate:(PlayerViewController*)delegate;
++(void) setTracks:(NSMutableArray*)tracks fromIndex:(NSNumber*)index;
 @end
 

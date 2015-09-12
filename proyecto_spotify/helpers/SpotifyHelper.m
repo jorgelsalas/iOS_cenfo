@@ -230,26 +230,18 @@ static SPTAudioStreamingController* player = nil;
     if ([self getPlayer] == nil) {
         [self setPlayer:[[SPTAudioStreamingController alloc] initWithClientId:[SPTAuth defaultInstance].clientID]];
     }
-    
-    [[self getPlayer] loginWithSession:[self getSession] callback:^(NSError *error) {
-        if (error != nil) {
-            NSLog(@"*** Logging in while trying to play a track got an error: %@", error);
-            return;
-        }
-        
-        NSMutableArray* songUris = [[NSMutableArray alloc] init];
-        for (SPTTrack* track in tracks) {
-            [songUris addObject:track.uri];
-            NSLog(@"Added URI: %@", track.uri);
-        }
-        
-        [[self getPlayer] playURIs:songUris fromIndex:[index intValue] callback:^(NSError *error) {
-            if(nil!=error){
-                NSLog(@"*** Starting playback got an error: %@", error);
+    if ([[self getPlayer] loggedIn]) {
+        [self setTracks:tracks fromIndex:index];
+    }
+    else{
+        [[self getPlayer] loginWithSession:[self getSession] callback:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"*** Logging in while trying to play a track got an error: %@", error);
+                return;
             }
-            return;
+            [self setTracks:tracks fromIndex:index];
         }];
-    }];
+    }
 }
 
 +(void) pauseSong{
@@ -366,6 +358,21 @@ static SPTAudioStreamingController* player = nil;
 
 +(void) setPlayerDelegate:(PlayerViewController *)delegate{
     [[self getPlayer] setPlaybackDelegate:delegate];
+}
+
++(void) setTracks:(NSMutableArray *)tracks fromIndex:(NSNumber *)index{
+    NSMutableArray* songUris = [[NSMutableArray alloc] init];
+    for (SPTTrack* track in tracks) {
+        [songUris addObject:track.uri];
+        NSLog(@"Added URI: %@", track.uri);
+    }
+    
+    [[self getPlayer] playURIs:songUris fromIndex:[index intValue] callback:^(NSError *error) {
+        if(nil!=error){
+            NSLog(@"*** Starting playback got an error: %@", error);
+        }
+        return;
+    }];
 }
 
 @end
