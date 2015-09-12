@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Spotify/Spotify.h>
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : UIViewController <SPTAudioStreamingPlaybackDelegate>
 
 @property (nonatomic,strong) NSMutableArray* tracks;
 @property (nonatomic, strong) SPTTrack* currentTrack;

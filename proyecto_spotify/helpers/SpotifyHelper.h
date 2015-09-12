@@ -37,5 +37,6 @@
 +(void) goToPreviousSong;
 +(void) goToNextSongWithTarget:(PlayerViewController*)target;
 +(void) goToPreviousSongWithTarget:(PlayerViewController*)target;
++(void) setPlayerDelegate:(PlayerViewController*)delegate;
 @end
 

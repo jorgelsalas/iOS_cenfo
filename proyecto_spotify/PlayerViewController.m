@@ -20,6 +20,7 @@
     NSLog(@"Current track from segue contains %@", self.currentTrack);
     NSLog(@"Track pointer from segue contains %@", self.trackPointer);
     [SpotifyHelper playSongList:self.tracks fromIndex:self.trackPointer];
+    [SpotifyHelper setPlayerDelegate:self];
     [self updateTrackImage];
     [self updateTrackName];
 }
@@ -84,6 +85,10 @@
     NSLog(@"Track AFTER changing: %d: %@ - %@", [[SpotifyHelper getPlayer] currentTrackIndex], self.currentTrack.name, self.currentTrack.uri);
     [self updateTrackImage];
     [self updateTrackName];
+}
+
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSURL *)trackUri{
+    [self updateCurrentTrack];
 }
 
 @end

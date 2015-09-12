@@ -27,7 +27,7 @@ static SPTAudioStreamingController* player = nil;
     // an iOS bug, so we wait a bit before doing so.
     [application performSelector:@selector(openURL:)
                       withObject:loginURL afterDelay:0.1];
-
+    
 }
 
 +(BOOL) handleAuthRequestWithUrl:(NSURL *)url{
@@ -362,6 +362,10 @@ static SPTAudioStreamingController* player = nil;
             [target updateCurrentTrack];
         }];
     }
+}
+
++(void) setPlayerDelegate:(PlayerViewController *)delegate{
+    [[self getPlayer] setPlaybackDelegate:delegate];
 }
 
 @end
