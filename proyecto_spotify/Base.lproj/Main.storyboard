@@ -108,7 +108,7 @@
                                 <connections>
                                     <outlet property="albumImage" destination="daS-wv-SYK" id="ISE-Mj-ytO"/>
                                     <outlet property="songName" destination="bBV-P8-pvp" id="Fbx-Kw-Jxh"/>
-                                    <segue destination="koR-np-Cbt" kind="showDetail" identifier="PlaySongSegue" id="w40-r0-qA0"/>
+                                    <segue destination="Ctt-av-nIk" kind="show" identifier="PlaySongSegue" id="w40-r0-qA0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="2892" y="104"/>
         </scene>
-        <!--Player View Controller-->
+        <!--Media Player-->
         <scene sceneID="ndc-i7-GIL">
             <objects>
                 <viewController id="koR-np-Cbt" customClass="PlayerViewController" sceneMemberID="viewController">
@@ -204,7 +204,7 @@
                             <constraint firstItem="gll-Z7-Bdv" firstAttribute="top" secondItem="8Ut-81-miK" secondAttribute="bottom" constant="8" id="zUo-jC-9kG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UjQ-lh-qW9"/>
+                    <navigationItem key="navigationItem" title="Media Player" id="UjQ-lh-qW9"/>
                     <connections>
                         <outlet property="albumImage" destination="sbn-o9-PWn" id="hje-zz-Uqf"/>
                         <outlet property="songNameLabel" destination="mgo-hQ-j1f" id="1zh-Z5-p5z"/>
@@ -212,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5E-ak-4gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3746" y="104"/>
+            <point key="canvasLocation" x="4558" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1FF-kR-sZB">
@@ -231,6 +231,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzA-OK-tmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256" y="104"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m3N-lN-8AL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ctt-av-nIk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ghi-eT-sMt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="koR-np-Cbt" kind="relationship" relationship="rootViewController" id="LgQ-Cm-WlK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3zw-IA-vHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3746" y="104"/>
         </scene>
     </scenes>
 </document>

@@ -75,9 +75,9 @@
         //NSIndexPath* indexPath = sender;
         NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
         SPTTrack* track = [self.tracks objectAtIndex:indexPath.row];
-        //UINavigationController* navController = segue.destinationViewController;
-        //SongListTableViewController* songListController = [navController.viewControllers firstObject];
-        PlayerViewController* playerController = segue.destinationViewController;
+        UINavigationController* navController = segue.destinationViewController;
+        PlayerViewController* playerController = [navController.viewControllers firstObject];
+        //PlayerViewController* playerController = segue.destinationViewController;
         
         playerController.currentTrack = track;
         playerController.tracks = self.tracks;
